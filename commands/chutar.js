@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'chutar',
+	aliases: ['chutar', 'kick'],
 	description: ' ',
 	guildOnly: true,
 	execute(message) {
@@ -8,5 +9,6 @@ module.exports = {
 			return message.reply('...VOCE ESQUECEU DE FALAR QM, patetico');
 		}
 		message.channel.send(`${taggedUser.username} foi dar uma volta...  xd`);
+
 	},
 };

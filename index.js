@@ -33,9 +33,10 @@ client.on('message', message => {
 	const commandName = args.shift().toLowerCase();
 
 
-	if (!client.commands.has(commandName)) return;
+	const command = client.commands.get(commandName)
+		||client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-	const command = client.commands.get(commandName);
+	if (!command) return;
 
 	if (command.guildOnly && message.channel.type !== 'text') {
 		return message.reply('Sai fora bicho');
@@ -62,7 +63,15 @@ client.on('message', message => {
 		setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 	}
 	else {
-		// ...
+		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+    if (now < expirationTime) {
+        const timeLeft = (expirationTime - now) / 1000;
+        return message.reply(`Calmai!  ${timeLeft.toFixed(1)} pra poder usar \`${command.name}\` de novo.`);
+    }
+
+    timestamps.set(message.author.id, now);
+    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 	}
 
 	try {
