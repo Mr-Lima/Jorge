@@ -1,2 +1,0 @@
-Token: NDQ3MTEzODk3Nzg3NTIzMDcy.DeC3Lg.NQCQ2ugung4ra3B176qN58Ngi6E
-https://discordapp.com/oauth2/authorize?client_id=447113897787523072&scope=bot&permissions=2146958417
