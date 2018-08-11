@@ -1,16 +1,23 @@
 module.exports = {
 	name: 'chutar',
 	aliases: ['chutar', 'kick'],
-	description: ' ',
+	description: 'manda alguem pra passear',
 	args: true,
-	uses: '<@pessoa> <razao>',
+	uses: '<@pessoa> <razao>', //implementar razao
 	guildOnly: true,
 	execute(message) {
-		const taggedUser = message.mentions.users.first();
+		const author = message.member
+		if(!author.hasPermission("KICK_MEMBERS", false, true, true)){
+			return message.reply('YOU ARE NOT PREPARED!')
+		}
+		const taggedUser = message.mentions.members.first();
 		if (!message.mentions.users.size) {
 			return message.reply('...VOCE ESQUECEU DE FALAR QM, patetico');
 		}
-		taggedUser.kick();
-		message.channel.send(`${taggedUser.username} foi dar uma volta...  xd`);
+		taggedUser.kick().then((taggedUser) => {
+			message.channel.send(`${taggedUser.displayName} foi dar uma volta...  xd :wave:`);
+		}).catch(() => {
+			message.channel.send("Pau no cu");
+		});
 	},
 };
