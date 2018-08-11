@@ -1,6 +1,9 @@
 module.exports = {
-	name: 'Apagar Mensagens',
-	description: ' ',
+	name: 'abafar',
+	description: ' apaga n mensagens anteriores ',
+	aliases: ['abafar', 'clean'],
+	usage: '[nome do comando] [numero de mensagens]',
+	cooldown: 5,
 	execute(message, args) {
 		const amount = parseInt(args[0]) + 1;
 

@@ -15,7 +15,7 @@ module.exports = {
 			return message.reply('...VOCE ESQUECEU DE FALAR QM, patetico');
 		}
 		taggedUser.kick().then((taggedUser) => {
-			message.channel.send(`${taggedUser.displayName} foi dar uma volta...  xd :wave:`);
+			message.channel.send(`${taggedUser.displayName} tomou um lightning bolt xd :zap:`);
 		}).catch(() => {
 			message.channel.send("Pau no cu");
 		});
