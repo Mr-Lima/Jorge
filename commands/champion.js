@@ -2,7 +2,7 @@ module.exports = {
 	name: 'champion',
 	description: ' ',
 	execute(message) {
-		const champions = ['Ahri', 'Akali', 'Alistar', 'Amumu', 'Anivia',
+		const champions = ['Aatrox', 'Ahri', 'Akali', 'Alistar', 'Amumu', 'Anivia',
 			'Annie', 'Ashe', 'Blitzcrank', 'Brand', 'Caitlyn', 'Cassiopeia',
 			'Cho gath', 'Corki', 'Dr. Mundo', 'Evelynn', 'Ezreal', 'Fiddlesticks',
 			'Fiora', 'Fizz', 'Galio', 'Gangplank', 'Garen', 'Gragas', 'Graves',

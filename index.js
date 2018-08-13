@@ -34,7 +34,7 @@ client.on('message', message => {
 
 
 	const command = client.commands.get(commandName)
-		||client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (!command) return;
 
@@ -65,13 +65,13 @@ client.on('message', message => {
 	else {
 		const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
 
-    if (now < expirationTime) {
-        const timeLeft = (expirationTime - now) / 1000;
-        return message.reply(`Calmai!  ${timeLeft.toFixed(1)} pra poder usar \`${command.name}\` de novo.`);
-    }
+		if (now < expirationTime) {
+			const timeLeft = (expirationTime - now) / 1000;
+			return message.reply(`Calmai!  ${timeLeft.toFixed(1)} pra poder usar \`${command.name}\` de novo.`);
+		}
 
-    timestamps.set(message.author.id, now);
-    setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+		timestamps.set(message.author.id, now);
+		setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 	}
 
 	try {
