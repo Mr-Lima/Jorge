@@ -14,6 +14,9 @@ module.exports = {
 		let diceNumber = 0;
 		diceNumber = parseInt(arrayInput[1]);
 		numberDices += parseInt(arrayInput[0]);
+		if (numberDices == 0) {
+			numberDices++;
+		}
 		const result = numberDices * (Math.floor((Math.random() * diceNumber) + 1));
 		message.reply(`Resultado: ${result}`);
 	},
